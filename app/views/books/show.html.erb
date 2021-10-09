@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<p>
+  <strong>Released at:</strong>
+  <%= @book.release_date %>
+</p>
+
+<h2>Comments</h2>
+
+<% @book.comments.each do |comment| %>
+  <p><%= comment.title %></p>
+  <p><%= comment.content %></p>
+  <hr>
+<% end %>
+
+<h2>Add a comment</h2>
+
+<%= form_with model: [@book, @book.comments.build] do |form| %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
