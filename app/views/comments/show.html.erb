@@ -1,0 +1,5 @@
+<h1><%= @comment.title %></h1>
+<p><%= @comment.content %></p>
+<p><b>Written by <%= @comment.commentter %></b></p>
+
+<%= link_to 'Accept', accept_book_comment_path(@comment.book, @comment), method: :patch %>

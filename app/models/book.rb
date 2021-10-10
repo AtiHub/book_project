@@ -10,7 +10,7 @@ class Book < ApplicationRecord
     validates :author, presence: true
     validates :page_count, presence: true, numericality: { only_integer: true }
 
-    scope :availables, -> { where(visible: true) }
+    scope :visibles, -> { where(visible: true) }
 
     private
 
